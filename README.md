@@ -77,7 +77,22 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 	//Código resaltante
 	```
 * **Solución del ejercicio**
-
+  - Dentro de Un grafo de palabras, cada vertice es una palabra, siendo 2 palabras adyacentes si solamente difieren
+    en una posición.
+  - El grafo definido las palabras: words, cords, corps, coops, crops, drops, drips, grips, gripe, grape, graph. Resulta.
+  	![imagen](ejercicio4/1.png)
+	![imagen](ejercicio4/2.png)
+	![imagen](ejercicio4/3.png)
+	![imagen](ejercicio4/4.png)
+	![imagen](ejercicio4/5.png)
+	![imagen](ejercicio4/6.png)
+	![imagen](ejercicio4/7.png)
+	![imagen](ejercicio4/8.png)
+	![imagen](ejercicio4/9.png)
+	![imagen](ejercicio4/10.png)
+	![imagen](ejercicio4/11.png)
+  - La resultante lista de adyacencia es:
+	![imagen](ejercicio4/12.png)
 * **Método adicional** 
   ```java
 	//Código resaltante
