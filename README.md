@@ -75,7 +75,9 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 * **Implementación de Dijkstra** 
   ```java
 	//Código resaltante
-	```  
+	```
+* **Solución del ejercicio**
+
 * **Método adicional** 
   ```java
 	//Código resaltante
