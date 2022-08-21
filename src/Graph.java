@@ -92,13 +92,13 @@ public class Graph<E> {
     }
 
     public static void main(String args[]) {
-        Graph<Integer> graph = new Graph<Integer>();
-        graph.addEdge(1, 2);
-        graph.addEdge(1, 5);
-        graph.addEdge(2, 5);
-        graph.addEdge(2, 3);
-        graph.addEdge(3, 4);
-        graph.addEdge(4, 1);
+        Graph<String> graph = new Graph<String>();
+        graph.addEdge("mario", " ");
+        graph.addEdge("karen", "mario");
+        graph.addEdge("franco", "karen");
+        graph.addEdge("jesus", "franco");
+        graph.addEdge("jose", "jesus");
+        graph.addEdge("carlo", "jose");
         System.out.println(graph);
     }
 }
