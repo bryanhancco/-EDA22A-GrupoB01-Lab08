@@ -16,4 +16,8 @@ public class Node<E>{
     this.next = next;
   }
 
+  public String toString(){
+    return data.toString();
+  }
+
 }
