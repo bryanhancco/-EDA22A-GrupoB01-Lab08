@@ -25,6 +25,9 @@ public class LinkedList<E>{
 
   public String toString(){
     String str = "";
+    for (Node<E> i = this.first; i != null; i = i.next) {
+      str += " , " + i.data;
+    }
     return str;
   }
 
