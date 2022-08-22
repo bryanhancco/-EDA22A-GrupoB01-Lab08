@@ -13,11 +13,29 @@ public class DepthFirstSearch<E> {
 	}
 	public void DFS(Vertice<E> vertice) {
     this.nodosVisitados.replace(vertice,  true);
-		System.out.println("[" + vertice + "]");
+		System.out.println("Vertice visitado: " + vertice);
 		
 		for (Vertice<E> adyacente : vertice.getAdjacentVertex()) {
 			if (!this.nodosVisitados.get(adyacente))
 				DFS(adyacente);
 		}
+	}
+
+	public static void main(String[] args) {
+		Graph<String> graph = new Graph<String>();
+		
+		graph.addEdge("gabriel", "anthony");
+	  graph.addEdge("gabriel", "karen");
+	  graph.addEdge("franco", "karen");
+	  graph.addEdge("gabriel", "franco");
+	  graph.addEdge("jose", "gabriel");
+	  graph.addEdge("gabriel", "jose");
+
+		DepthFirstSearch<String> bfs = new DepthFirstSearch<String>(graph);
+
+		Vertice<String> vertice = graph.getVertices().get(0);
+
+		System.out.println("Breadth First Search:");
+		bfs.DFS(vertice);
 	}
 }
