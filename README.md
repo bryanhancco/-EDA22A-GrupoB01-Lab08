@@ -227,9 +227,45 @@ Para la implementacion de un *grafo* repesentado mediante una *Lista de Adyacenc
   ```
 
 * **Implementación de Dijkstra** 
+  Se realizó el siguiente test:
   ```java
-	//Código resaltante
+  Dijkstra graph = new Dijkstra(5);
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+        graph.addVertex("D");
+        graph.addVertex("E");
+
+        graph.addEdges(0, 1, 10);
+        graph.addEdges(0, 2, 2);
+        graph.addEdges(2, 1, 1);
+        graph.addEdges(2, 4, 7);
+        graph.addEdges(1, 4, 1);
+        graph.addEdges(4, 3, 3);
+
+        showEdges();
+        graph.dijkStra(0);
+  ```
+  Para el algoritmo de Dijkstra se debe implementar una clase llamada "Dijkstra" que contenga un método "dijkstra" que reciba el index del nodo de partida y retorne un arreglo de enteros que contenga la distancia de cada nodo al nodo de partida. Los resultados obtenidos son 
+  
+  ```java
+  A   0.0    A
+  B   3.0    A C B
+  C   2.0    A C
+  D   7.0    A C B E D
+  E   4.0    A C B E
 	```
+  Donde el segundo valor es la distancia recorrida y el tercer valor es el camino que se tuvo que recorrer para poder llegar al nodo.
+
+  A su vez se el método showEdges() nos muestra la matriz del grafo.
+  ```java
+  [0, 10, 2, 0, 0]
+  [0, 0, 0, 0, 1]
+  [0, 1, 0, 0, 7]
+  [0, 0, 0, 0, 0]
+  [0, 0, 0, 3, 0]
+  ```	
+  
 * **Solución del ejercicio**
 
 * **EJERCICIO 5 - Método Adicional** 
@@ -298,6 +334,9 @@ private int indexOf(E data, ArrayList<Vertice<E>> contenedor) {
 
 II. Cuestionario
 * ¿Cuantas variantes del algoritmo de Dijkstra hay y cuál es la diferencia entre ellas?
+  * **Versión con cola de prioridades :** Es una versión en la cual se usan colas que tienen cierta prioridad para que el algoritmo sepa que nodo se va a visitar primero. 
+  * **Versión con montículos(heaps) :**  Es una versión en la cual se usan montículos(heaps) en el cuál cada nodo hijo tiene un valor mayor al que de su padre. 
+  
   
 *  Invetigue sobre los ALGORITMOS DE CAMINOS MINIMOS e indique, ¿Qué similitudes encuentra, 
    qué diferencias, en qué casos utilizar y porque?
