@@ -91,6 +91,10 @@ public class Graph<E> {
     return false;
   }
 
+  public ArrayList<Vertice<E>> getVertices(){
+    return this.vertices;
+  } 
+
   public boolean content(Graph<E> graphContenido, Graph<E> graphContenedor) {
     if (graphContenido.vertices.size() > graphContenedor.vertices.size())
       return false;
