@@ -77,15 +77,11 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
     Posteriormente se crea una <code>Queue</code> que es responsable de agregar los vértices que van a ser visitados por el algoritmo, luego con un ciclo se itera sobre cada vertice adyacente del vertice en el que se encuentra ahora la cola y finalmente se cambia el valor <code>boolean</code> del <code>HashMap</code> para indicar que el vértice ya fue visitado.
   
   ```java
-    Vertice<String> vertice = graph.getVertices().get(3);
-    bfs.BFS(graph, vertice);
-
     Breadth First Search:
-    Nodos visitados:
-    [franco]
-    [karen]
-    [mario]
-    [ ]
+    Vertice visitado: karen
+    Vertice visitado: franco
+    Vertice visitado: gabriel
+    Vertice visitado: anthony
   ```
     * Algoritmo Depth First Search
 
@@ -94,15 +90,12 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
       En el constructor se inicia el <code>HashMap</code> por lo que en el algoritmo únicamente se debe indicar el vértice por donde se debe iniciar el recorrido, de esta manera se itera sobre cada vértice adyacente y aplicando recursividad a cada uno <code>DFS(Vertice<E> vertice)</code>.
 
     ```java
-    Vertice<String> vertice = graph.getVertices().get(3);
-    dfs.DFS(vertice);
-
-    Depth First Search:
-    Nodos visitados:
-    [franco]
-    [karen]
-    [mario]
-    [ ]
+    Breadth First Search:
+    Vertice visitado: gabriel
+    Vertice visitado: anthony
+    Vertice visitado: karen
+    Vertice visitado: franco
+    Vertice visitado: jose
   ```
 
 * **Implementación de Dijkstra** 
