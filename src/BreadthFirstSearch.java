@@ -18,7 +18,7 @@ public class BreadthFirstSearch<E> {
 
     while (queue.size() != 0) {
 			vertice = queue.poll();
-			System.out.println("[" + vertice + "]");
+			System.out.println("Vertice visitado: " + vertice);
 			
 			for (Vertice<E> adyacente : vertice.getAdjacentVertex()) {
 				Vertice<E> n = adyacente;
@@ -28,5 +28,23 @@ public class BreadthFirstSearch<E> {
 				}
 			}
 		}
+	}
+
+	public static void main(String[] args) {
+		Graph<String> graph = new Graph<String>();
+		
+		graph.addEdge("gabriel", "anthony");
+	  graph.addEdge("anthony", "gabriel");
+	  graph.addEdge("franco", "karen");
+	  graph.addEdge("karen", "franco");
+	  graph.addEdge("karen", "gabriel");
+	  graph.addEdge("carlo", "jose");
+
+		BreadthFirstSearch<String> bfs = new BreadthFirstSearch<String>();
+
+		Vertice<String> vertice = graph.getVertices().get(3);
+
+		System.out.println("Breadth First Search:");
+		bfs.BFS(graph, vertice);
 	}
 }
