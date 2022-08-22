@@ -80,7 +80,8 @@ Para la implementacion de un *grafo* repesentado mediante una *Lista de Adyacenc
 	 }
 	```
 	- Del mismo modo se considero necesario tener metodso para agregar vertices adyacentes y eliminar los vertices adyacentes, al tener estos almacenados en un arrayList luego de verificar la existencia el vertice a añadir o eliminar, podemos reutilizar los metodos 	```add()``` y remove ```remove()``` que nos proporciona un arrayList.
-		```java
+	
+	```java
 	  public boolean addAdjacentVertex(Vertice<E> to) {
 	    for (Vertice v : adjacentVertices) {
 	      // Verificando si ya existe
@@ -104,17 +105,94 @@ Para la implementacion de un *grafo* repesentado mediante una *Lista de Adyacenc
 	    return false;
 	  }
 	```	
+							
 	- En la implementacion  la clase **Graph.java** se consideraron los siguientes atributos.
-		```java
+							
+	```java
 	public class Graph<E> {
-  	  private ArrayList<Vertice<E>> vertices;
-    	  private int numVertices;
+      private ArrayList<Vertice<E>> vertices;
+  	  private int numVertices;	
 	  ...
 	}
-	```
+	```	
+	- Ademas de eso tenemos el emtodo ```addEdege(E from, E to)``` el cual agrega una arista desde un vertice 'from' a un vertice 'to', primero verifica la existencia de 'from' y de 'to' , en el caso no existan ambos el metodo de detiene, para posterniro mente crearlos en caso no existan , y luego seañade el vertice como adyacente a 'to'.
+	    ```java
+	    public boolean addEdge(E from, E to) {
+		Vertice fromV = null, toV = null;
+		for (Vertice v : vertices) {
+		    if (from.equals(v.data)) { 
+			fromV = v;
+		    } else if (to.equals(v.data)) { 
+			toV = v;
+		    }
+		    if (fromV != null && toV != null) {
+			break; 
+		    }
+		}
+		if (fromV == null) {
+		    fromV = new Vertice(from);
+		    vertices.add(fromV);
+		    numVertices++;
+		}
+		if (toV == null) {
+		    toV = new Vertice(to);
+		    vertices.add(toV);
+		    numVertices++;
+		}
+		return fromV.addAdjacentVertex(toV);
+	    }
+	    ```  
 	
-	- 
-
+	- Del mismo modo podemos resaltar el metodo ```removeEdge(E from, E to)```  el cual elimina la arista del vertice 'from' al vertice 'to',  en primer lugar busca el vertice , en caso no lo encuentre retorna false y no elmina ningun vertice , y de lo contrario elimina la arista de 'from' al vertice 'to'.
+	 ```java
+	     public boolean removeEdge(E from, E to) {
+		Vertice fromV = null;
+		for (Vertice v : vertices) {
+		    if (from.equals(v.data)) {
+			fromV = v;
+			break;
+		    }
+		}
+		if (fromV == null) {
+		    return false;
+		}
+		return fromV.removeAdjacentVertex(to);
+	    }
+	``` 
+	- Tambien un metodo ```toString()``` ,que recorre vertice por vertice accediendo a cada una de las listas de adyacencia , para organizar la impresion de datos, esto nos sirvio para hacer una pequeña prueba de la ejecucion de este grafo.
+	```java
+	public String toString() {
+          StringBuilder sb = new StringBuilder();
+          for (Vertice<E> v : vertices) {
+              sb.append("Vertex: ");
+              sb.append(v.data);
+              sb.append("\n");
+              sb.append("Adjacent vertices: ");
+              for (Vertice<E> v2 : v.adjacentVertices) {
+                 sb.append(v2.data);
+                 sb.append(" ");
+              }
+              sb.append("\n");
+          }
+	  return sb.toString();
+        }      
+	```  
+	- Luego de la ejecución de esta clase optenemos:
+	```bash
+		Vertex: mario
+		Adjacent vertices: giraldo 
+		Vertex: giraldo
+		Adjacent vertices: 
+		Vertex: karen
+		Adjacent vertices: mario 
+		Vertex: jesus
+		Adjacent vertices: mario franco jose 
+		Vertex: franco
+		Adjacent vertices: karen 
+		Vertex: jose
+		Adjacent vertices: jesus 
+	``` 
+	
 	---
 
 * **Implementacion del BSF y DFS** 
