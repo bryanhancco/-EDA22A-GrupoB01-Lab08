@@ -177,7 +177,7 @@ Para la implementacion de un *grafo* repesentado mediante una *Lista de Adyacenc
 	  return sb.toString();
         }      
 	```  
-	- Luego de la ejecución de esta clase optenemos:
+	- Luego de la ejecución de esta clase obtenemos:
 	```bash
 		Vertex: mario
 		Adjacent vertices: giraldo 
