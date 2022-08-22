@@ -120,6 +120,46 @@ II. Cuestionario
   
 *  Invetigue sobre los ALGORITMOS DE CAMINOS MINIMOS e indique, ¿Qué similitudes encuentra, 
    qué diferencias, en qué casos utilizar y porque?
+
+   * Algoritmos de caminos mínimos:
+
+      * Dijkstra: 
+
+        Realiza operaciones (sumas y comparaciones) para determinar la longitud del camino más corto entre dos vértices de un grafo ponderado simple, conexo y no dirigido.
+
+      * Bellman-Ford: 
+      
+        Devuelve un valor booleano, si encuentra pesos negativos, en caso contrario calcula y devuelve el camino con un coste mínimo en un grafo ponderado
+
+      * Algoritmo de Búsqueda A*: 
+      
+        Es una combinación entre búsquedas del Breadth First Search y Depth First Search.
+
+      * Algoritmo de Floyd-Warshall: 
+      
+        El algoritmo de Warshall es un ejemplo de algoritmo booleano. A partir de una tabla inicial compuesta de 0s (no hay correspondencia inicial en el grafo) y 1s (hay una correspondencia, llamase “flecha”, entre nodos), obtiene una nueva matriz en la que se muestran todas las posibles uniones entre nodos.
+
+      * Algoritmo de Johnson: 
+      
+        Algoritmo que hace uso de dos algoritmos anteriormente mencionados: a) Algortimo de Dijkstra, b) Algoritmo de Bellman-Ford
+
+    * Similitudes
+
+      La principal semejanza entre estos algoritmos es la función de poder encontrar el camino más corto y el más eficiente al objetivo que se propone.
+
+    * Diferencias
+
+      La principal diferencia entre estos algoritmos es la forma en la que hallan el camino más corto, por una parte, algunos tienes en cuenta pesos y se evaluan entre otros pesos de diferentes de caminos para hallar el más óptimo, por otro lado, algoritmos como el de Floyd-Warshall en el que se usan matrices.
+
+    * Cuando usarlos
+
+      Cuando se habla de recorridos mínimos las principales aplicaciones son:
+
+      * Aplicaciones para Sistemas de información geográficos
+
+      * Routers
+      
+      * Enrutamiento de aviones
   
 III. CONCLUSIONES
 
