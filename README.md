@@ -105,10 +105,14 @@ II. Cuestionario
   
 III. CONCLUSIONES
 
-- 
-- 
-- 
-- 
+-  Los amplia amplitud de aplicaciones que posee el grafo, sea en las ciencias o en las humanidades, hacen que su implementación
+   sea una muy importante, aprovechandose así, todas sus bondades
+-  Las representaciones del grafo, basadas en la adyacencia y siendo una matriz o una lista, son muy útiles para una comprensión
+   rápida de la información del grafo.
+-  Los recorridos de los grafos (BFS y DFS) y los algoritmos de caminos mínimos (Dijkstra), son métodos muy importantes que garantizan
+   visitar/procesar cada uno de los nodos y poder determinar el camino/ruta más corta, dado un nodo de origen respectivamente.
+-  La implementación y/o desarrollo de cada uno de los ejercicios planteados fue un muy importante reto a asumir, pero gracias a la
+   información planteada en la guía, el proceso fue mucho más llevadero 
 
 ---
 
