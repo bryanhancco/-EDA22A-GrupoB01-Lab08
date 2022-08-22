@@ -21,7 +21,7 @@ public class BreadthFirstSearch<E> {
 			vertice = queue.poll();
 			System.out.println("Vertice visitado: " + vertice);
 
-			for (Vertice<E> adyacente : vertice.vertices) {
+			for (Vertice<E> adyacente : vertice.getAdjacentVertex()) {
 				Vertice<E> n = adyacente;
 				if (!nodosVisitados.get(n)) {
 					nodosVisitados.replace(n, true);

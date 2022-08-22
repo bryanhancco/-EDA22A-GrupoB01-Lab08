@@ -8,7 +8,7 @@ public class test5 {
         graph.addEdge("jose", "barbara");
         graph.addEdge("yerick", "barbie");
         System.out.println(graph);
-    
+
         Graph<String> graph2 = new Graph<String>();
         graph2.addEdge("fraasasnco", "karen");
         graph2.addEdge("jose", "jesus");
@@ -17,8 +17,8 @@ public class test5 {
         graph2.addEdge("jose", "barbara");
         graph.addEdge("yerick", "barbie");
         System.out.println(graph2);
-    
+
         System.out.println(graph.content(graph2, graph));
     }
-    
+
 }
