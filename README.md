@@ -69,9 +69,35 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 	//Código resaltante
 	```
 * **Implementacion del BSF y DFS** 
+
+  * Algoritmo Breadth First Search
+  
+    En la implementación del algoritmo <code>Breadth First Search</code> se crea un <code>HashMap</code> que tiene la función de mantener un registro de los vertices que ya fueron visitados por el algoritmo, donde se tiene una clave que es el vértice y valor <code>boolean</code>.
+    
+    Posteriormente se crea una <code>Queue</code> que es responsable de agregar los vértices que van a ser visitados por el algoritmo, luego con un ciclo se itera sobre cada vertice adyacente del vertice en el que se encuentra ahora la cola y finalmente se cambia el valor <code>boolean</code> del <code>HashMap</code> para indicar que el vértice ya fue visitado.
+  
   ```java
-	//Código resaltante
-	```   
+    Breadth First Search:
+    Vertice visitado: karen
+    Vertice visitado: franco
+    Vertice visitado: gabriel
+    Vertice visitado: anthony
+  ```
+    * Algoritmo Depth First Search
+
+      Para la implementación del algoritmo Depth First Search se hace uso de la recursividad, teniendo como variable global al <code>HashMap</code> que tiene registro de las visitas a los vértices y el grafo.
+
+      En el constructor se inicia el <code>HashMap</code> por lo que en el algoritmo únicamente se debe indicar el vértice por donde se debe iniciar el recorrido, de esta manera se itera sobre cada vértice adyacente y aplicando recursividad a cada uno <code>DFS(Vertice<E> vertice)</code>.
+
+    ```java
+    Breadth First Search:
+    Vertice visitado: gabriel
+    Vertice visitado: anthony
+    Vertice visitado: karen
+    Vertice visitado: franco
+    Vertice visitado: jose
+  ```
+
 * **Implementación de Dijkstra** 
   ```java
 	//Código resaltante
@@ -87,6 +113,46 @@ II. Cuestionario
   
 *  Invetigue sobre los ALGORITMOS DE CAMINOS MINIMOS e indique, ¿Qué similitudes encuentra, 
    qué diferencias, en qué casos utilizar y porque?
+
+   * Algoritmos de caminos mínimos:
+
+      * Dijkstra: 
+
+        Realiza operaciones (sumas y comparaciones) para determinar la longitud del camino más corto entre dos vértices de un grafo ponderado simple, conexo y no dirigido.
+
+      * Bellman-Ford: 
+      
+        Devuelve un valor booleano, si encuentra pesos negativos, en caso contrario calcula y devuelve el camino con un coste mínimo en un grafo ponderado
+
+      * Algoritmo de Búsqueda A*: 
+      
+        Es una combinación entre búsquedas del Breadth First Search y Depth First Search.
+
+      * Algoritmo de Floyd-Warshall: 
+      
+        El algoritmo de Warshall es un ejemplo de algoritmo booleano. A partir de una tabla inicial compuesta de 0s (no hay correspondencia inicial en el grafo) y 1s (hay una correspondencia, llamase “flecha”, entre nodos), obtiene una nueva matriz en la que se muestran todas las posibles uniones entre nodos.
+
+      * Algoritmo de Johnson: 
+      
+        Algoritmo que hace uso de dos algoritmos anteriormente mencionados: a) Algortimo de Dijkstra, b) Algoritmo de Bellman-Ford
+
+    * Similitudes
+
+      La principal semejanza entre estos algoritmos es la función de poder encontrar el camino más corto y el más eficiente al objetivo que se propone.
+
+    * Diferencias
+
+      La principal diferencia entre estos algoritmos es la forma en la que hallan el camino más corto, por una parte, algunos tienes en cuenta pesos y se evaluan entre otros pesos de diferentes de caminos para hallar el más óptimo, por otro lado, algoritmos como el de Floyd-Warshall en el que se usan matrices.
+
+    * Cuando usarlos
+
+      Cuando se habla de recorridos mínimos las principales aplicaciones son:
+
+      * Aplicaciones para Sistemas de información geográficos
+
+      * Routers
+      
+      * Enrutamiento de aviones
   
 III. CONCLUSIONES
 
