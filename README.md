@@ -231,6 +231,10 @@ Para la implementacion de un *grafo* repesentado mediante una *Lista de Adyacenc
 	//Código resaltante
 	```
 * **Solución del ejercicio**
+
+* **EJERCICIO 5 - Método Adicional** 
+ - Se agrego un método content en el cual se ingresan dos grafos y se indica si uno se encuentro contenido en el otro retorna true si es que está contenido y false si no lo está, para esto, se recorre nodo a nodo con un for y con otro for interno el array que existe en cada nodo para compararlos.
+	
   - Dentro de Un grafo de palabras, cada vertice es una palabra, siendo 2 palabras adyacentes si solamente difieren
     en una posición.
   - El grafo definido las palabras: words, cords, corps, coops, crops, drops, drips, grips, gripe, grape, graph. Resulta.
@@ -249,8 +253,49 @@ Para la implementacion de un *grafo* repesentado mediante una *Lista de Adyacenc
 	![imagen](ejercicio4/12.png)
 * **Método adicional** 
   ```java
-	//Código resaltante
-	```  
+public boolean content(Graph<E> graphContenido, Graph<E> graphContenedor) {
+    if (graphContenido.vertices.size() > graphContenedor.vertices.size())
+      return false;
+    for (Vertice<E> i : graphContenido.vertices) {
+       int indi = indexOf(i.data, graphContenedor.vertices);
+       if (indi < 0)
+         return false;
+       else {
+         if (i.vertices != null) {
+           boolean isContent = isContentArrayVertice(i.vertices, graphContenedor.vertices.get(indi).vertices);
+           if (!isContent)
+             return false;
+         }
+       }
+     }
+     return true;
+		    
+}
+```  
+		   
+- Se llamó a otros dos métodos para que el método sea más ordenado y más entendible, estos dos métodos fueron: indexOf (se busca el vertice del grafo pequeño en los vertices del grafo contenedor) y isContentArrayVertice (se indica si el array del grafo contenido realmente está en el grafo contenedor)	 
+```java
+private boolean isContentArrayVertice(Object vertices2, Object vertices3) {
+     System.out.println(vertices2);
+     for (Vertice<E> i : vertices2) {
+       if (indexOf(i.data, vertices3) < 0)
+         return false;
+     }
+     return true;
+}
+
+private int indexOf(E data, ArrayList<Vertice<E>> contenedor) {
+     for (int i = 0; i < contenedor.size(); i++) {
+          if (data.equals(contenedor.get(i).data))
+            return i;
+     }
+    return -1;
+}
+```	
+* EJECUCIÓN
+ - En la ejecución mostrada vemos cómo un grafo pequeño es casi igual excepto que en uno de sus nodos tiene 3 elementos y el original tiene 2 asi que devolverá FALSE, se ve en la consola.
+![imagen](https://user-images.githubusercontent.com/90292110/185838756-a2a42f14-fd5a-4a35-a8b6-c192903d1202.png)
+
 II. Cuestionario
 * ¿Cuantas variantes del algoritmo de Dijkstra hay y cuál es la diferencia entre ellas?
   
