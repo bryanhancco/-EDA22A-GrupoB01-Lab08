@@ -5,5 +5,10 @@ public class BreadthFirstSearch<E> {
 		
 	}
 	public void BFS(Graph<E> graph, Vertice<E> vertice) {
+    HashMap<Vertice<E>, Boolean> nodosVisitados = new HashMap<Vertice<E>, Boolean>();
+		
+		for(Vertice<E> verticex : (ArrayList<Vertice<E>>)graph.getVertices()) {
+			nodosVisitados.put(verticex, false);
+		}
 	}
 }
