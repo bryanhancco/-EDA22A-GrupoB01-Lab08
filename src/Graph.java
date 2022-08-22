@@ -97,12 +97,13 @@ public class Graph<E> {
 
     public static void main(String args[]) {
         Graph<String> graph = new Graph<String>();
-        graph.addEdge("mario", " ");
+        graph.addEdge("mario", "giraldo");
         graph.addEdge("karen", "mario");
+        graph.addEdge("jesus", "mario");
         graph.addEdge("franco", "karen");
         graph.addEdge("jesus", "franco");
         graph.addEdge("jose", "jesus");
-        graph.addEdge("carlo", "jose");
+        graph.addEdge("jesus", "jose");
         System.out.println(graph);
     }
 }
