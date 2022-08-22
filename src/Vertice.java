@@ -2,6 +2,7 @@ import java.util.*;
 public class Vertice<E>{
   E data;
   ArrayList<Vertice<E>> adjacentVertices;
+public Object vertices;
 
   public Vertice(E data){
     this.adjacentVertices = new ArrayList<>(); 
