@@ -65,13 +65,167 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
     ```
   * **Nota :** Para los ver los ejercicios propuestos deberá compilar y ejecutar "Test.java".
 * **Implementacion del grafo**
-	```java
-	//Código resaltante
+Para la implementacion de un *grafo* repesentado mediante una *Lista de Adyacencia* se consideraron las siguientes clases
+	```bash
+	.
+	├── Graph.java
+	└── Vertice.java
 	```
+	- Para la clase **Vertice.java** se consideraron los siguientes atributos
+	```java
+	public class Vertice<E>{
+	  E data;
+ 	  ArrayList<Vertice<E>> adjacentVertices;
+	  ...
+	 }
+	```
+	- Del mismo modo se considero necesario tener metodso para agregar vertices adyacentes y eliminar los vertices adyacentes, al tener estos almacenados en un arrayList luego de verificar la existencia el vertice a añadir o eliminar, podemos reutilizar los metodos 	```add()``` y remove ```remove()``` que nos proporciona un arrayList.
+	
+	```java
+	  public boolean addAdjacentVertex(Vertice<E> to) {
+	    for (Vertice v : adjacentVertices) {
+	      // Verificando si ya existe
+	      if (v.data.equals(to.data)) {
+		return false;
+	      }
+	    }
+	    this.adjacentVertices.add(to);
+
+	    return true;
+	  }
+
+	  public boolean removeAdjacentVertex(E to) {
+	    for (int i = 0; i < adjacentVertices.size(); i++) {
+	      // Encontrando vertice adjacente
+	      if (this.adjacentVertices.get(i).data.equals(to)) {
+		this.adjacentVertices.remove(i);
+		return true;
+	      }
+	    }
+	    return false;
+	  }
+	```	
+							
+	- En la implementacion  la clase **Graph.java** se consideraron los siguientes atributos.
+							
+	```java
+	public class Graph<E> {
+      private ArrayList<Vertice<E>> vertices;
+  	  private int numVertices;	
+	  ...
+	}
+	```	
+	- Ademas de eso tenemos el emtodo ```addEdege(E from, E to)``` el cual agrega una arista desde un vertice 'from' a un vertice 'to', primero verifica la existencia de 'from' y de 'to' , en el caso no existan ambos el metodo de detiene, para posterniro mente crearlos en caso no existan , y luego seañade el vertice como adyacente a 'to'.
+	    ```java
+	    public boolean addEdge(E from, E to) {
+		Vertice fromV = null, toV = null;
+		for (Vertice v : vertices) {
+		    if (from.equals(v.data)) { 
+			fromV = v;
+		    } else if (to.equals(v.data)) { 
+			toV = v;
+		    }
+		    if (fromV != null && toV != null) {
+			break; 
+		    }
+		}
+		if (fromV == null) {
+		    fromV = new Vertice(from);
+		    vertices.add(fromV);
+		    numVertices++;
+		}
+		if (toV == null) {
+		    toV = new Vertice(to);
+		    vertices.add(toV);
+		    numVertices++;
+		}
+		return fromV.addAdjacentVertex(toV);
+	    }
+	    ```  
+	
+	- Del mismo modo podemos resaltar el metodo ```removeEdge(E from, E to)```  el cual elimina la arista del vertice 'from' al vertice 'to',  en primer lugar busca el vertice , en caso no lo encuentre retorna false y no elmina ningun vertice , y de lo contrario elimina la arista de 'from' al vertice 'to'.
+	 ```java
+	     public boolean removeEdge(E from, E to) {
+		Vertice fromV = null;
+		for (Vertice v : vertices) {
+		    if (from.equals(v.data)) {
+			fromV = v;
+			break;
+		    }
+		}
+		if (fromV == null) {
+		    return false;
+		}
+		return fromV.removeAdjacentVertex(to);
+	    }
+	``` 
+	- Tambien un metodo ```toString()``` ,que recorre vertice por vertice accediendo a cada una de las listas de adyacencia , para organizar la impresion de datos, esto nos sirvio para hacer una pequeña prueba de la ejecucion de este grafo.
+	```java
+	public String toString() {
+           StringBuilder sb = new StringBuilder();
+           for (Vertice<E> v : vertices) {
+             sb.append("Vertex: ");
+             sb.append(v.data);
+             sb.append("\n");
+             sb.append("Adjacent vertices: ");
+             for (Vertice<E> v2 : v.adjacentVertices) {
+               sb.append(v2.data);
+               sb.append(" ");
+             }
+             sb.append("\n");
+          }
+	  return sb.toString();
+    } 
+    ``` 
+	
+	- Luego de la ejecución de esta clase obtenemos:
+	```bash
+		Vertex: mario
+		Adjacent vertices: giraldo 
+		Vertex: giraldo
+		Adjacent vertices: 
+		Vertex: karen
+		Adjacent vertices: mario 
+		Vertex: jesus
+		Adjacent vertices: mario franco jose 
+		Vertex: franco
+		Adjacent vertices: karen 
+		Vertex: jose
+		Adjacent vertices: jesus 
+	``` 
+	
+	---
+
 * **Implementacion del BSF y DFS** 
+
+  * Algoritmo Breadth First Search
+  
+    En la implementación del algoritmo <code>Breadth First Search</code> se crea un <code>HashMap</code> que tiene la función de mantener un registro de los vertices que ya fueron visitados por el algoritmo, donde se tiene una clave que es el vértice y valor <code>boolean</code>.
+    
+    Posteriormente se crea una <code>Queue</code> que es responsable de agregar los vértices que van a ser visitados por el algoritmo, luego con un ciclo se itera sobre cada vertice adyacente del vertice en el que se encuentra ahora la cola y finalmente se cambia el valor <code>boolean</code> del <code>HashMap</code> para indicar que el vértice ya fue visitado.
+  
   ```java
-	//Código resaltante
-	```   
+    Breadth First Search:
+    Vertice visitado: karen
+    Vertice visitado: franco
+    Vertice visitado: gabriel
+    Vertice visitado: anthony
+  ```
+    * Algoritmo Depth First Search
+
+      Para la implementación del algoritmo Depth First Search se hace uso de la recursividad, teniendo como variable global al <code>HashMap</code> que tiene registro de las visitas a los vértices y el grafo.
+
+      En el constructor se inicia el <code>HashMap</code> por lo que en el algoritmo únicamente se debe indicar el vértice por donde se debe iniciar el recorrido, de esta manera se itera sobre cada vértice adyacente y aplicando recursividad a cada uno <code>DFS(Vertice<E> vertice)</code>.
+
+    ```java
+    Breadth First Search:
+    Vertice visitado: gabriel
+    Vertice visitado: anthony
+    Vertice visitado: karen
+    Vertice visitado: franco
+    Vertice visitado: jose
+  ```
+
 * **Implementación de Dijkstra** 
   ```java
 	//Código resaltante
@@ -81,6 +235,23 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 * **EJERCICIO 5 - Método Adicional** 
  - Se agrego un método content en el cual se ingresan dos grafos y se indica si uno se encuentro contenido en el otro retorna true si es que está contenido y false si no lo está, para esto, se recorre nodo a nodo con un for y con otro for interno el array que existe en cada nodo para compararlos.
 	
+  - Dentro de Un grafo de palabras, cada vertice es una palabra, siendo 2 palabras adyacentes si solamente difieren
+    en una posición.
+  - El grafo definido las palabras: words, cords, corps, coops, crops, drops, drips, grips, gripe, grape, graph. Resulta.
+  	![imagen](ejercicio4/1.png)
+	![imagen](ejercicio4/2.png)
+	![imagen](ejercicio4/3.png)
+	![imagen](ejercicio4/4.png)
+	![imagen](ejercicio4/5.png)
+	![imagen](ejercicio4/6.png)
+	![imagen](ejercicio4/7.png)
+	![imagen](ejercicio4/8.png)
+	![imagen](ejercicio4/9.png)
+	![imagen](ejercicio4/10.png)
+	![imagen](ejercicio4/11.png)
+  - La resultante lista de adyacencia es:
+	![imagen](ejercicio4/12.png)
+* **Método adicional** 
   ```java
 public boolean content(Graph<E> graphContenido, Graph<E> graphContenedor) {
     if (graphContenido.vertices.size() > graphContenedor.vertices.size())
@@ -130,13 +301,57 @@ II. Cuestionario
   
 *  Invetigue sobre los ALGORITMOS DE CAMINOS MINIMOS e indique, ¿Qué similitudes encuentra, 
    qué diferencias, en qué casos utilizar y porque?
+
+   * Algoritmos de caminos mínimos:
+
+      * Dijkstra: 
+
+        Realiza operaciones (sumas y comparaciones) para determinar la longitud del camino más corto entre dos vértices de un grafo ponderado simple, conexo y no dirigido.
+
+      * Bellman-Ford: 
+      
+        Devuelve un valor booleano, si encuentra pesos negativos, en caso contrario calcula y devuelve el camino con un coste mínimo en un grafo ponderado
+
+      * Algoritmo de Búsqueda A*: 
+      
+        Es una combinación entre búsquedas del Breadth First Search y Depth First Search.
+
+      * Algoritmo de Floyd-Warshall: 
+      
+        El algoritmo de Warshall es un ejemplo de algoritmo booleano. A partir de una tabla inicial compuesta de 0s (no hay correspondencia inicial en el grafo) y 1s (hay una correspondencia, llamase “flecha”, entre nodos), obtiene una nueva matriz en la que se muestran todas las posibles uniones entre nodos.
+
+      * Algoritmo de Johnson: 
+      
+        Algoritmo que hace uso de dos algoritmos anteriormente mencionados: a) Algortimo de Dijkstra, b) Algoritmo de Bellman-Ford
+
+    * Similitudes
+
+      La principal semejanza entre estos algoritmos es la función de poder encontrar el camino más corto y el más eficiente al objetivo que se propone.
+
+    * Diferencias
+
+      La principal diferencia entre estos algoritmos es la forma en la que hallan el camino más corto, por una parte, algunos tienes en cuenta pesos y se evaluan entre otros pesos de diferentes de caminos para hallar el más óptimo, por otro lado, algoritmos como el de Floyd-Warshall en el que se usan matrices.
+
+    * Cuando usarlos
+
+      Cuando se habla de recorridos mínimos las principales aplicaciones son:
+
+      * Aplicaciones para Sistemas de información geográficos
+
+      * Routers
+      
+      * Enrutamiento de aviones
   
 III. CONCLUSIONES
 
-- 
-- 
-- 
-- 
+-  Los amplia amplitud de aplicaciones que posee el grafo, sea en las ciencias o en las humanidades, hacen que su implementación
+   sea una muy importante, aprovechandose así, todas sus bondades
+-  Las representaciones del grafo, basadas en la adyacencia y siendo una matriz o una lista, son muy útiles para una comprensión
+   rápida de la información del grafo.
+-  Los recorridos de los grafos (BFS y DFS) y los algoritmos de caminos mínimos (Dijkstra), son métodos muy importantes que garantizan
+   visitar/procesar cada uno de los nodos y poder determinar el camino/ruta más corta, dado un nodo de origen respectivamente.
+-  La implementación y/o desarrollo de cada uno de los ejercicios planteados fue un muy importante reto a asumir, pero gracias a la
+   información planteada en la guía, el proceso fue mucho más llevadero 
 
 ---
 

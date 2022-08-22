@@ -119,6 +119,7 @@ public class Graph<E> {
     return true;
   }
 
+
   private int indexOf(E data, ArrayList<Vertice<E>> contenedor) {
     for (int i = 0; i < contenedor.size(); i++) {
       if (data.equals(contenedor.get(i).data))
@@ -148,3 +149,4 @@ public class Graph<E> {
     System.out.println(graph.content(graph2, graph));
   }
 }
+
