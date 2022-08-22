@@ -162,21 +162,22 @@ Para la implementacion de un *grafo* repesentado mediante una *Lista de Adyacenc
 	- Tambien un metodo ```toString()``` ,que recorre vertice por vertice accediendo a cada una de las listas de adyacencia , para organizar la impresion de datos, esto nos sirvio para hacer una pequeña prueba de la ejecucion de este grafo.
 	```java
 	public String toString() {
-          StringBuilder sb = new StringBuilder();
-          for (Vertice<E> v : vertices) {
-              sb.append("Vertex: ");
-              sb.append(v.data);
-              sb.append("\n");
-              sb.append("Adjacent vertices: ");
-              for (Vertice<E> v2 : v.adjacentVertices) {
-                 sb.append(v2.data);
-                 sb.append(" ");
-              }
-              sb.append("\n");
+           StringBuilder sb = new StringBuilder();
+           for (Vertice<E> v : vertices) {
+             sb.append("Vertex: ");
+             sb.append(v.data);
+             sb.append("\n");
+             sb.append("Adjacent vertices: ");
+             for (Vertice<E> v2 : v.adjacentVertices) {
+               sb.append(v2.data);
+               sb.append(" ");
+             }
+             sb.append("\n");
           }
 	  return sb.toString();
-        }      
-	```  
+    } 
+    ``` 
+	
 	- Luego de la ejecución de esta clase obtenemos:
 	```bash
 		Vertex: mario
