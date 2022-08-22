@@ -69,9 +69,42 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 	//Código resaltante
 	```
 * **Implementacion del BSF y DFS** 
+
+  * Algoritmo Breadth First Search
+  
+    En la implementación del algoritmo <code>Breadth First Search</code> se crea un <code>HashMap</code> que tiene la función de mantener un registro de los vertices que ya fueron visitados por el algoritmo, donde se tiene una clave que es el vértice y valor <code>boolean</code>.
+    
+    Posteriormente se crea una <code>Queue</code> que es responsable de agregar los vértices que van a ser visitados por el algoritmo, luego con un ciclo se itera sobre cada vertice adyacente del vertice en el que se encuentra ahora la cola y finalmente se cambia el valor <code>boolean</code> del <code>HashMap</code> para indicar que el vértice ya fue visitado.
+  
   ```java
-	//Código resaltante
-	```   
+    Vertice<String> vertice = graph.getVertices().get(3);
+    bfs.BFS(graph, vertice);
+
+    Breadth First Search:
+    Nodos visitados:
+    [franco]
+    [karen]
+    [mario]
+    [ ]
+  ```
+    * Algoritmo Depth First Search
+
+      Para la implementación del algoritmo Depth First Search se hace uso de la recursividad, teniendo como variable global al <code>HashMap</code> que tiene registro de las visitas a los vértices y el grafo.
+
+      En el constructor se inicia el <code>HashMap</code> por lo que en el algoritmo únicamente se debe indicar el vértice por donde se debe iniciar el recorrido, de esta manera se itera sobre cada vértice adyacente y aplicando recursividad a cada uno <code>DFS(Vertice<E> vertice)</code>.
+
+    ```java
+    Vertice<String> vertice = graph.getVertices().get(3);
+    dfs.DFS(vertice);
+
+    Depth First Search:
+    Nodos visitados:
+    [franco]
+    [karen]
+    [mario]
+    [ ]
+  ```
+
 * **Implementación de Dijkstra** 
   ```java
 	//Código resaltante
