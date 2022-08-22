@@ -120,7 +120,11 @@ private int indexOf(E data, ArrayList<Vertice<E>> contenedor) {
      }
     return -1;
 }
-```					  
+```	
+* EJECUCIÓN
+ - En la ejecución mostrada vemos cómo un grafo pequeño es casi igual excepto que en uno de sus nodos tiene 3 elementos y el original tiene 2 asi que devolverá FALSE, se ve en la consola.
+![imagen](https://user-images.githubusercontent.com/90292110/185838756-a2a42f14-fd5a-4a35-a8b6-c192903d1202.png)
+
 II. Cuestionario
 * ¿Cuantas variantes del algoritmo de Dijkstra hay y cuál es la diferencia entre ellas?
   
