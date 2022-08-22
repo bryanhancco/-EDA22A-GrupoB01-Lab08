@@ -30,9 +30,11 @@ public class Vertice<E>{
     }
     return false;
   }
+
   public ArrayList<Vertice<E>> getAdjacentVertex(){
 	  return this.adjacentVertices;
   }
+
   public String toString() {
 	  return this.data.toString();
   }
