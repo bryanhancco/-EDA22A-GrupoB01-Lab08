@@ -71,7 +71,8 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 	│   ├── BreadthFirstSearch.java
 	│   ├── DepthFirstSearch.java
 	│   ├── Graph.java
-	│   └── Vertice.java
+	│   ├── Vertice.java
+	│   └── test5.java
 	├── .gitignore
 	└── README.md
     ```
