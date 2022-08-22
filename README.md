@@ -82,24 +82,24 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
  - Se agrego un método content en el cual se ingresan dos grafos y se indica si uno se encuentro contenido en el otro retorna true si es que está contenido y false si no lo está, para esto, se recorre nodo a nodo con un for y con otro for interno el array que existe en cada nodo para compararlos.
 	
   ```java
-	public boolean content(Graph<E> graphContenido, Graph<E> graphContenedor) {
+public boolean content(Graph<E> graphContenido, Graph<E> graphContenedor) {
     if (graphContenido.vertices.size() > graphContenedor.vertices.size())
       return false;
     for (Vertice<E> i : graphContenido.vertices) {
-      int indi = indexOf(i.data, graphContenedor.vertices);
-      if (indi < 0)
-        return false;
-      else {
-        if (i.vertices != null) {
-          boolean isContent = isContentArrayVertice(i.vertices, graphContenedor.vertices.get(indi).vertices);
-          if (!isContent)
-            return false;
-        }
-      }
-    }
-    return true;
-
-  }
+       int indi = indexOf(i.data, graphContenedor.vertices);
+       if (indi < 0)
+         return false;
+       else {
+         if (i.vertices != null) {
+           boolean isContent = isContentArrayVertice(i.vertices, graphContenedor.vertices.get(indi).vertices);
+           if (!isContent)
+             return false;
+         }
+       }
+     }
+     return true;
+		    
+}
 ```  
 		   
 - Se llamó a otros dos métodos para que el método sea más ordenado y más entendible, estos dos métodos fueron: indexOf (se busca el vertice del grafo pequeño en los vertices del grafo contenedor) y isContentArrayVertice (se indica si el array del grafo contenido realmente está en el grafo contenedor)	 
