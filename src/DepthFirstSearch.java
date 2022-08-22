@@ -16,7 +16,7 @@ public class DepthFirstSearch<E> {
 		this.nodosVisitados.replace(vertice, true);
 		System.out.println("Vertice visitado: " + vertice);
 
-		for (Vertice<E> adyacente : vertice.vertices) {
+		for (Vertice<E> adyacente : vertice.getAdjacentVertex()) {
 			if (!this.nodosVisitados.get(adyacente))
 				DFS(adyacente);
 		}
