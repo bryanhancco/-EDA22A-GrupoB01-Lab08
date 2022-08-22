@@ -15,5 +15,18 @@ public class BreadthFirstSearch<E> {
 
 		nodosVisitados.replace(vertice,  true);
 		queue.add(vertice);
+
+    while (queue.size() != 0) {
+			vertice = queue.poll();
+			System.out.println("[" + vertice + "]");
+			
+			for (Vertice<E> adyacente : vertice.getAdjacentVertex()) {
+				Vertice<E> n = adyacente;
+				if (!nodosVisitados.get(n)) {
+					nodosVisitados.replace(n,  true);
+					queue.add(n);
+				}
+			}
+		}
 	}
 }
