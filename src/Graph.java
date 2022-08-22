@@ -97,6 +97,7 @@ public class Graph<E> {
 
     public static void main(String args[]) {
         Graph<String> graph = new Graph<String>();
+
         graph.addEdge("mario", "giraldo");
         graph.addEdge("karen", "mario");
         graph.addEdge("jesus", "mario");
@@ -107,3 +108,4 @@ public class Graph<E> {
         System.out.println(graph);
     }
 }
+
