@@ -90,6 +90,10 @@ public class Graph<E> {
     public boolean removeVertex(int vertex) {
         return false;
     }
+    
+    public ArrayList<Vertice<E>> getVertices(){
+    	return this.vertices;
+    }
 
     public static void main(String args[]) {
         Graph<String> graph = new Graph<String>();
