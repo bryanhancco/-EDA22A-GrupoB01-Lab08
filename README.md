@@ -100,11 +100,10 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
     return true;
 
   }
-	```  
+```  
 		   
-- Se llamó a otros dos métodos para que el método sea más ordenado y más entendible, estos dos métodos fueron: indexOf (se busca el vertice del grafo pequeño en los vertices del grafo contenedor) y isContentArrayVertice (se indica si el array del grafo contenido realmente está en el grafo contenedor).
-		   
- ```java
+- Se llamó a otros dos métodos para que el método sea más ordenado y más entendible, estos dos métodos fueron: indexOf (se busca el vertice del grafo pequeño en los vertices del grafo contenedor) y isContentArrayVertice (se indica si el array del grafo contenido realmente está en el grafo contenedor)	 
+```java
 	private boolean isContentArrayVertice(Object vertices2, Object vertices3) {
     System.out.println(vertices2);
     for (Vertice<E> i : vertices2) {
@@ -121,8 +120,7 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
     }
     return -1;
   }
-	```
-					  
+```					  
 II. Cuestionario
 * ¿Cuantas variantes del algoritmo de Dijkstra hay y cuál es la diferencia entre ellas?
   
