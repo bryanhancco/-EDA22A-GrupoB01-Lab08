@@ -62,8 +62,19 @@
 I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 * La organización del repositorio es la siguiente
     ```sh
+	.
+	├── ejercicio4
+	│   └── ...
+	├── src
+	│   ├── Dijkstra
+	│   │   └── Dijkstra.java
+	│   ├── BreadthFirstSearch.java
+	│   ├── DepthFirstSearch.java
+	│   ├── Graph.java
+	│   └── Vertice.java
+	├── .gitignore
+	└── README.md
     ```
-  * **Nota :** Para los ver los ejercicios propuestos deberá compilar y ejecutar "Test.java".
 * **Implementacion del grafo**
 Para la implementacion de un *grafo* repesentado mediante una *Lista de Adyacencia* se consideraron las siguientes clases
 	```bash
