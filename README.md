@@ -231,7 +231,22 @@ Para la implementacion de un *grafo* repesentado mediante una *Lista de Adyacenc
 	//Código resaltante
 	```
 * **Solución del ejercicio**
-
+  - Dentro de Un grafo de palabras, cada vertice es una palabra, siendo 2 palabras adyacentes si solamente difieren
+    en una posición.
+  - El grafo definido las palabras: words, cords, corps, coops, crops, drops, drips, grips, gripe, grape, graph. Resulta.
+  	![imagen](ejercicio4/1.png)
+	![imagen](ejercicio4/2.png)
+	![imagen](ejercicio4/3.png)
+	![imagen](ejercicio4/4.png)
+	![imagen](ejercicio4/5.png)
+	![imagen](ejercicio4/6.png)
+	![imagen](ejercicio4/7.png)
+	![imagen](ejercicio4/8.png)
+	![imagen](ejercicio4/9.png)
+	![imagen](ejercicio4/10.png)
+	![imagen](ejercicio4/11.png)
+  - La resultante lista de adyacencia es:
+	![imagen](ejercicio4/12.png)
 * **Método adicional** 
   ```java
 	//Código resaltante
@@ -284,10 +299,14 @@ II. Cuestionario
   
 III. CONCLUSIONES
 
-- 
-- 
-- 
-- 
+-  Los amplia amplitud de aplicaciones que posee el grafo, sea en las ciencias o en las humanidades, hacen que su implementación
+   sea una muy importante, aprovechandose así, todas sus bondades
+-  Las representaciones del grafo, basadas en la adyacencia y siendo una matriz o una lista, son muy útiles para una comprensión
+   rápida de la información del grafo.
+-  Los recorridos de los grafos (BFS y DFS) y los algoritmos de caminos mínimos (Dijkstra), son métodos muy importantes que garantizan
+   visitar/procesar cada uno de los nodos y poder determinar el camino/ruta más corta, dado un nodo de origen respectivamente.
+-  La implementación y/o desarrollo de cada uno de los ejercicios planteados fue un muy importante reto a asumir, pero gracias a la
+   información planteada en la guía, el proceso fue mucho más llevadero 
 
 ---
 
