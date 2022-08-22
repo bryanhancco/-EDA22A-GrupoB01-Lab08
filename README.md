@@ -65,9 +65,58 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
     ```
   * **Nota :** Para los ver los ejercicios propuestos deberá compilar y ejecutar "Test.java".
 * **Implementacion del grafo**
-	```java
-	//Código resaltante
+Para la implementacion de un *grafo* repesentado mediante una *Lista de Adyacencia* se consideraron las siguientes clases
+	```bash
+	.
+	├── Graph.java
+	└── Vertice.java
 	```
+	- Para la clase **Vertice.java** se consideraron los siguientes atributos
+	```java
+	public class Vertice<E>{
+	  E data;
+ 	  ArrayList<Vertice<E>> adjacentVertices;
+	  ...
+	 }
+	```
+	- Del mismo modo se considero necesario tener metodso para agregar vertices adyacentes y eliminar los vertices adyacentes, al tener estos almacenados en un arrayList luego de verificar la existencia el vertice a añadir o eliminar, podemos reutilizar los metodos 	```add()``` y remove ```remove()``` que nos proporciona un arrayList.
+		```java
+	  public boolean addAdjacentVertex(Vertice<E> to) {
+	    for (Vertice v : adjacentVertices) {
+	      // Verificando si ya existe
+	      if (v.data.equals(to.data)) {
+		return false;
+	      }
+	    }
+	    this.adjacentVertices.add(to);
+
+	    return true;
+	  }
+
+	  public boolean removeAdjacentVertex(E to) {
+	    for (int i = 0; i < adjacentVertices.size(); i++) {
+	      // Encontrando vertice adjacente
+	      if (this.adjacentVertices.get(i).data.equals(to)) {
+		this.adjacentVertices.remove(i);
+		return true;
+	      }
+	    }
+	    return false;
+	  }
+	```	
+	- En la implementacion  la clase **Graph.java** se consideraron los siguientes atributos.
+		```java
+	public class Graph<E> {
+  	  private ArrayList<Vertice<E>> vertices;
+    	  private int numVertices;
+	  ...
+	}
+	```
+	
+	- 
+
+	---
+
 * **Implementacion del BSF y DFS** 
   ```java
 	//Código resaltante
