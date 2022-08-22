@@ -10,5 +10,10 @@ public class BreadthFirstSearch<E> {
 		for(Vertice<E> verticex : (ArrayList<Vertice<E>>)graph.getVertices()) {
 			nodosVisitados.put(verticex, false);
 		}
+
+    LinkedList<Vertice<E>> queue = new LinkedList<Vertice<E>>();
+
+		nodosVisitados.replace(vertice,  true);
+		queue.add(vertice);
 	}
 }
