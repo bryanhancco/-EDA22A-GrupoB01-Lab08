@@ -12,5 +12,12 @@ public class DepthFirstSearch<E> {
 		}
 	}
 	public void DFS(Vertice<E> vertice) {
+    this.nodosVisitados.replace(vertice,  true);
+		System.out.println("[" + vertice + "]");
+		
+		for (Vertice<E> adyacente : vertice.getAdjacentVertex()) {
+			if (!this.nodosVisitados.get(adyacente))
+				DFS(adyacente);
+		}
 	}
 }
