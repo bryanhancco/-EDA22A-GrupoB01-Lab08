@@ -11,8 +11,8 @@ public class Graph<E> {
 
   // Agregar una arista desde un vertice 'from' a un vertice 'to'
   public boolean addEdge(E from, E to) {
-    Vertice fromV = null, toV = null;
-    for (Vertice v : vertices) {
+    Vertice<E> fromV = null, toV = null;
+    for (Vertice<E> v : vertices) {
       if (from.equals(v.data)) { // verificando si 'from' existe
         fromV = v;
       } else if (to.equals(v.data)) { // verificando si 'to' existe
@@ -91,10 +91,6 @@ public class Graph<E> {
     return false;
   }
 
-  public ArrayList<Vertice<E>> getVertices(){
-    return this.vertices;
-  } 
-
   public boolean content(Graph<E> graphContenido, Graph<E> graphContenedor) {
     if (graphContenido.vertices.size() > graphContenedor.vertices.size())
       return false;
@@ -114,15 +110,14 @@ public class Graph<E> {
 
   }
 
-  private boolean isContentArrayVertice(Object vertices2, Object vertices3) {
-    System.out.println(vertices2);
-    for (Vertice<E> i : vertices2) {
-      if (indexOf(i.data, vertices3) < 0)
+  private boolean isContentArrayVertice(ArrayList<Vertice<E>> contenido, ArrayList<Vertice<E>> contenedor) {
+    System.out.println(contenido);
+    for (Vertice<E> i : contenido) {
+      if (indexOf(i.data, contenedor) < 0)
         return false;
     }
     return true;
   }
-
 
   private int indexOf(E data, ArrayList<Vertice<E>> contenedor) {
     for (int i = 0; i < contenedor.size(); i++) {
@@ -134,23 +129,17 @@ public class Graph<E> {
 
   public static void main(String args[]) {
     Graph<String> graph = new Graph<String>();
-    graph.addEdge("fraasasnco", "karen");
+    graph.addEdge("mario", "giraldo");
+    graph.addEdge("karen", "mario");
+    graph.addEdge("jesus", "mario");
+    graph.addEdge("franco", "karen");
+    graph.addEdge("jesus", "franco");
     graph.addEdge("jose", "jesus");
     graph.addEdge("carlo", "jose");
-    graph.addEdge("barbara", "jose");
-    graph.addEdge("jose", "barbara");
-    graph.addEdge("yerick", "barbie");
     System.out.println(graph);
+  }
 
-    Graph<String> graph2 = new Graph<String>();
-    graph2.addEdge("fraasasnco", "karen");
-    graph2.addEdge("jose", "jesus");
-    graph2.addEdge("carlo", "jose");
-    graph2.addEdge("barbara", "jose");
-    graph2.addEdge("jose", "barbara");
-    System.out.println(graph2);
-
-    System.out.println(graph.content(graph2, graph));
+  public ArrayList<Vertice<E>> getVertices() {
+    return vertices;
   }
 }
-

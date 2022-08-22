@@ -1,11 +1,12 @@
 import java.util.*;
-public class Vertice<E>{
+
+public class Vertice<E> {
   E data;
   ArrayList<Vertice<E>> adjacentVertices;
-public Object vertices;
+  public ArrayList<Vertice<E>> vertices;
 
-  public Vertice(E data){
-    this.adjacentVertices = new ArrayList<>(); 
+  public Vertice(E data) {
+    this.adjacentVertices = new ArrayList<>();
     this.data = data;
   }
 
@@ -31,13 +32,4 @@ public Object vertices;
     }
     return false;
   }
-
-  public ArrayList<Vertice<E>> getAdjacentVertex(){
-	  return this.adjacentVertices;
-  }
-
-  public String toString() {
-	  return this.data.toString();
-  }
 }
-
